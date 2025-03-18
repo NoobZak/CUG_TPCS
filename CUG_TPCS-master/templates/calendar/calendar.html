@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block body %}
+    <script src='/static/js/FullCalendar/index.global.js'></script>
+    <script src='/static/js/FullCalendar/bs5_index.global.js'></script>
+    <script src='/static/js/FullCalendar/zh-cn.global.js'></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                {#initialDate: '2024-01-12',#}
+                themeSystem: 'bootstrap5',
+                locale:'zh-cn',
+                editable: true,
+                selectable: true,
+                businessHours: true,
+                dayMaxEvents: true, // allow "more" link when too many events
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridYear,dayGridMonth,dayGridWeek,timeGridDay,listMonth'
+                },
+                events: [
+                    {
+                        title: 'A竞赛报名',
+                        start: '2024-05-01'
+                    },
+                    {
+                        title: 'B竞赛持续时间',
+                        start: '2024-05-07',
+                        end: '2024-05-10'
+                    },
+                    {
+                        groupId: 999,
+                        title: 'C竞赛事件',
+                        start: '2024-05-09T16:00:00'
+                    },
+                    {
+                        groupId: 999,
+                        title: 'C竞赛事件',
+                        start: '2024-05-16T16:00:00'
+                    },
+                    {
+                        title: 'D竞赛持续时间',
+                        start: '2024-05-11',
+                        end: '2024-05-13'
+                    },
+                    {
+                        title: 'A训练',
+                        start: '2024-05-12T10:30:00',
+                        end: '2024-05-12T12:30:00'
+                    },
+                    {
+                        title: 'A教学',
+                        start: '2024-05-12T12:00:00'
+                    },
+                    {
+                        title: 'B教学',
+                        start: '2024-05-12T14:30:00'
+                    },
+                    {
+                        title: 'A团建',
+                        start: '2024-05-12T17:30:00'
+                    },
+                    {
+                        title: 'B训练',
+                        start: '2024-05-12T20:00:00'
+                    },
+                    {
+                        title: 'A活动',
+                        start: '2024-05-13T07:00:00'
+                    },
+                    {
+                        title: 'A链接',
+                        url: 'http://google.com/',
+                        start: '2024-05-28'
+                    }
+                ]
+            });
+
+            calendar.render();
+        });
+
+    </script>
+    <style>
+
+        #calendar {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+    </style>
+    <div class="container mx-auto m-2" style="width: 70%">
+        <div id="calendar"></div>
+    </div>
+{% endblock %}

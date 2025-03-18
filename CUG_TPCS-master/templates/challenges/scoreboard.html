@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container mx-auto m-2" style="width: 50%">
+    <h4 class="mt-4">排行榜</h4>
+        <ol class="list-group list-group-numbered mt-2">
+            {% for user in users %}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold"><a href="/user/{{ user.username }}">{{ user.username }}</a></div>
+                </div>
+                <span class="badge bg-primary rounded-pill">得分：{{ user.score }}</span>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock %}

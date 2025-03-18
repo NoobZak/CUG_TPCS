@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container mx-auto m-2" style="width: 50%">
+        <h3>添加题目</h3>
+        <form method="post" class="needs-validated" action="" enctype="multipart/form-data">
+            <div class="form-group mb-3">
+                <input id="title" name="title" type="text" class="form-control" placeholder="输入题目名称"
+                       aria-label="输入题目名称"
+                       aria-describedby="basic-addon2" required>
+                <div class="invalid-feedback">请填写此字段。</div>
+            </div>
+            <div class="form-group mb-3">
+                <input id="type" name="type" type="text" class="form-control" placeholder="输入题目类型"
+                       aria-label="输入题目名称"
+                       aria-describedby="basic-addon2" required>
+            </div>
+            <div class="invalid-feedback">请填写此字段。</div>
+            <div class="form-group mb-3">
+                <span class="input-group-text">题目内容</span>
+                <textarea id="content" name="content" class="form-control" aria-label="With textarea"
+                          required></textarea>
+                <div class="invalid-feedback">请填写此字段。</div>
+            </div>
+            <div class="form-group mb-3">
+                <input id="score" name="score" type="text" class="form-control" placeholder="输入题目分数"
+                       aria-label="输入题目分数"
+                       aria-describedby="basic-addon2" required>
+                <div class="invalid-feedback">请填写此字段。</div>
+            </div>
+            <div class="form-group mb-3">
+                <input id="docker_name" name="docker_name" type="text" class="form-control" placeholder="输入容器名称"
+                       aria-label="输入容器名称"
+                       aria-describedby="basic-addon2">
+            </div>
+            <div class="form-group mb-3">
+                <input id="flag" name="flag" type="text" class="form-control" placeholder="输入flag"
+                       aria-label="输入flag"
+                       aria-describedby="basic-addon2">
+            </div>
+            <div class="form-group form-check form-switch mb-3">
+                <input class="form-check-input" name="show" type="checkbox" role="switch" id="show">
+                <label class="form-check-label" for="show">是否展示</label>
+            </div>
+            <div class="form-group input-group mb-3">
+                <input type="file" name="file" class="form-control" id="file">
+            </div>
+            <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+    </div>
+{% endblock %}
