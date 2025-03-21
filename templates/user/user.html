@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container" style="width: 70%">
+        <div class="m-3" style="display: flex;justify-content: center;align-items: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor"
+                 class="bi bi-file-person"
+                 viewBox="0 0 16 16"
+            >
+                <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+            </svg>
+        </div>
+        <div class="text-center">
+            <h1>{{ user.username }}</h1>
+        </div>
+    {% if g.userid == user.id %}
+        <div class="card mx-auto" style="width:70%">
+            <div class="card-header">修改信息</div>
+            <div class="card-body">
+                <form method="post" onsubmit="return validateForm()">
+                    <div class="form-group mb-1">
+                        <label for="username">用户名</label>
+                        <input name="username" type="text" class="form-control" id="username"
+                               placeholder="{{ user.username }}" required>
+                    </div>
+                    <div class="form-group mb-1">
+                        <label for="studentid">学号</label>
+                        <input name="studentid" type="text" class="form-control" id="studentid"
+                               placeholder="{{ user.studentid }}" required>
+                    </div>
+                    <div class="form-group mb-1">
+                        <label for="password">当前密码</label>
+                        <input name="current_password" type="password" class="form-control" id="current_password"
+                               placeholder="输入当前密码" required>
+                    </div>
+                    <div class="form-group mb-1">
+                        <label for="password">新的密码</label>
+                        <input name="password" type="password" class="form-control" id="password"
+                               placeholder="输入新的密码" required>
+                    </div>
+                    <div class="form-group mb-1">
+                        <label for="password">确认密码</label>
+                        <input name="password2" type="password" class="form-control" id="password2"
+                               placeholder="再次输入密码" required>
+                    </div>
+                    <p id="passwordMismatch" style="color:red;display:none"></p>
+                    <button type="submit" class="btn btn-primary mb-1">修改</button>
+                </form>
+                <script>
+                    function validateForm() {
+                        var password = document.getElementById("password").value;
+                        var confirm_password = document.getElementById("password2").value;
+                        if (password != confirm_password) {
+                            alert('两次输入密码不一致');
+                            document.getElementById("passwordMismatch").style.display = "block";
+                            return false;
+                        } else {
+                            document.getElementById("passwordMismatch").style.display = "none";
+                            return true;
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    {% endif %}
+    <h3 class="mt-5 ms-5 mx-auto">当前分数：0</h3>
+    <h3 class="mt-5 ms-5">我写过的文章</h3>
+        <div class="row mt-2 ms-5 me-5">
+            {% for article in articleList %}
+                <div class="col-sm-6 mb-3">
+                    <div class="card border-primary">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="/article/{{ article.id }}">{{ article.title }}</a></h5>
+                            <p class="card-text">{{ article.content }}</p>
+                        </div>
+                        <div class="card-footer text-body-secondary text-center fs-6">
+                            {{ article.create_time }}
+                            <a class="link-secondary" href="#">{{ article.author.username }}</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="mx-auto">
+                {{ pagination.links }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

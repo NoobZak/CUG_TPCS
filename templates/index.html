@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div class="container mx-auto m-2" style="width: 50%">
+        <div style="padding-top:5em">
+            <h3>欢迎来到中国地质大学（武汉）网络安全练习平台</h3>
+            <h5>我们是来自中国地质大学（武汉）的0x3f战队</h5><br>
+            <div class="container mx-auto mb-5">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="static/img/2023ciscn_pic.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>参赛照片</h5>
+                                <h6>2023年CISCN华中赛竞赛合照</h6>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/training.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>训练照片</h5>
+                                <h6>日常训练照片</h6>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/NewYear.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>活动照片</h5>
+                                <h6>2024元旦嘉年华受到党委书记黄晓枚参观</h6>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="static/img/2023ciscn_cert.png" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="text-dark">获奖证书</h5>
+                                <h6 class="text-dark">2023年CISCN华中赛区二等奖</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <p><b>
+                来 <a href="/tutorial">这里</a> 看学习资料！
+                来 <a href="/calendar">这里</a> 看竞赛信息！
+            </b></p>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#web" aria-expanded="true" aria-controls="web">
+                            Web类题目
+                        </button>
+                    </h2>
+                    <div id="web" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Web</strong> 是 CTF 的主要题型，题目涉及到许多常见的 Web
+                            漏洞，如文件包含、代码执行、上传漏洞、SQL 注入等，需要选手进行相关漏洞利用拿下服务器权限。题目环境比较接近真实环境是CTF中的一个重要方向。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#pwn" aria-expanded="false" aria-controls="pwn">
+                            Pwn类题目
+                        </button>
+                    </h2>
+                    <div id="pwn" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Pwn</strong> 在黑客俚语中代表着攻破，获取权限，在 CTF
+                            比赛中它代表着溢出类的题目，其中常见类型溢出漏洞有整数溢出、栈溢出、堆溢出等,主要考查参赛选手对漏洞的利用能力。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#reverse" aria-expanded="false" aria-controls="reverse">
+                            Reverse类题目
+                        </button>
+                    </h2>
+                    <div id="reverse" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Reverse</strong> 主要涉及到软件逆向、破解技术等，要求有较强的反汇编、反编译功底。主要考查参赛选手的逆向分析能力。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#crypto" aria-expanded="false" aria-controls="crypto">
+                            Crypto类题目
+                        </button>
+                    </h2>
+                    <div id="crypto" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Crypto</strong> 考察各种加解密技术，包括古典加密技术、现代加密技术甚至出题者自创加密技术，主要考查参赛选手密码学相关知识点,通常会和其他题目相结合。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#misc" aria-expanded="false" aria-controls="misc">
+                            Misc类题目
+                        </button>
+                    </h2>
+                    <div id="misc" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Misc</strong> 即安全杂项，题目涉及隐写术、流量分析、电子取证、数据分析、大数据统计等，覆盖面比较广，主要考查参赛选手的各种基础综合知识。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#realworld" aria-expanded="false" aria-controls="realworld">
+                            Real world类题目
+                        </button>
+                    </h2>
+                    <div id="realworld" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Real world</strong> 即现实生活真实存在的漏洞，出这类题主要是想让同学们了解真实的漏洞。
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#OSINT" aria-expanded="false" aria-controls="OSINT">
+                            OSINT类题目
+                        </button>
+                    </h2>
+                    <div id="OSINT" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>OSINT</strong> 即开源网络情报(Open source
+                            intelligence),是一种情报搜集手段，从各种公开的信息资源中寻找和获取有价值的情报。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            我们的官方群：887616482（QQ）<br>
+            有任何疑问可以进群咨询，管理员一定及时为你解答！
+        </div>
+    </div>
+{% endblock %}

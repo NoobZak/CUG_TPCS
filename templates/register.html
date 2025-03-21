@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}注册{% endblock %}
+{% block body %}
+    <div class="container mx-auto m-5">
+            <div class="col-md-4 mx-auto m-5">
+                <div class="card">
+                    <div class="card-header">注册新账户</div>
+                    <div class="card-body">
+                        <form method="post" onsubmit="return validateForm()">
+                            <div class="form-group mb-1">
+                                <label for="username">用户名</label>
+                                <input name="username" type="text" class="form-control" id="username"
+                                       placeholder="输入用户名" required>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label for="studentid">学号</label>
+                                <input name="studentid" type="text" class="form-control" id="studentid"
+                                       placeholder="输入你的学号" required>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label for="password">密码</label>
+                                <input name="password" type="password" class="form-control" id="password"
+                                       placeholder="输入密码" required>
+                            </div>
+                            <div class="form-group mb-1">
+                                <label for="password">确认密码</label>
+                                <input name="password2" type="password" class="form-control" id="password2"
+                                       placeholder="再次输入密码" required>
+                            </div>
+                            <p id="passwordMismatch" style="color:red;display:none"></p>
+                            <button type="submit" class="btn btn-primary mb-1">注册</button>
+                            <a class="btn btn-primary mb-1" href="/login" role="button">已有账号 去登陆</a>
+                        </form>
+                        <script>
+                            function validateForm() {
+                                var password = document.getElementById("password").value;
+                                var confirm_password = document.getElementById("password2").value;
+                                if (password != confirm_password) {
+                                    alert('两次输入密码不一致');
+                                    document.getElementById("passwordMismatch").style.display = "block";
+                                    return false;
+                                } else {
+                                    document.getElementById("passwordMismatch").style.display = "none";
+                                    return true;
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
+
